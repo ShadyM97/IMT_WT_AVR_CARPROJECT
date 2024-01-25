@@ -22,6 +22,8 @@
 #define CAR_STOP		1
 #define CAR_RUNNING		0
 
+#define CAR_ON			1
+#define CAR_OFF			0
 #define CAR_STOP_LED_OFF	0
 #define CAR_STOP_LED_ON		1
 
@@ -61,13 +63,13 @@ int main(void)
 		UART_u8Data = UART_u8ReceiveData();
 		if (UART_u8Data == 'A')
 		{
-			car_u8State = 'A';
+			car_u8State = CAR_ON;
 		}
 		else if (UART_u8Data == 'B')
 		{
-			car_u8State = 'B';
+			car_u8State = CAR_OFF;
 		}
-		if (1)
+		if (car_u8State == CAR_ON)
 		{
 			if (u8Carstop == CAR_RUNNING)
 			{
